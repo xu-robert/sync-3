@@ -24,4 +24,4 @@ jobs:
       git push repo-a HEAD:refs/heads/amd-mirror
     displayName: 'Mirror Repo B to Repo A'
     env:
-      AZURE_DEVOPS_EXT_PAT: $(ACCESS_TOKEN)
+      SYSTEM_ACCESSTOKEN: $(ACCESS_TOKEN)
