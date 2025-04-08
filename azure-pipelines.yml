@@ -24,4 +24,4 @@ jobs:
       git push repo-a HEAD:refs/heads/amd-mirror
     displayName: 'Mirror Repo B to Repo A'
     env:
-      SYSTEM_ACCESSTOKEN: $(ACCESS_TOKEN)
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
