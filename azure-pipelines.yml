@@ -16,6 +16,7 @@ jobs:
       # Add the remote for Repo A (GitHub)
       git remote add repo-a https://xu-robert:$(GH_TOKEN)@github.com/xu-robert/sync-3.git
       # Fetch the latest changes from Repo A
+      git remote -v
       git fetch repo-a
       git fetch origin
       git checkout -b main origin/main
