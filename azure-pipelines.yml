@@ -10,7 +10,7 @@ jobs:
 - job: SyncRepoA
   steps:
   - checkout: self  # This checks out the current repository (Repo B)
-    fetchdepth: 0
+    fetchDepth: 0
 
   - script: |
       # Use the System.AccessToken to authenticate
