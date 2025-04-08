@@ -14,7 +14,7 @@ jobs:
   - script: |
       # Use the System.AccessToken to authenticate
       git config --global credential.helper store
-      echo "https://$(System.AccessToken):@dev.azure.com" > ~/.git-credentials
+      echo "https://$(SYSTEM_ACCESSTOKEN):@dev.azure.com" > ~/.git-credentials
       # Add the remote for Repo A (GitHub)
       # git remote add repo-a https://xu-robert:$(GH_TOKEN)@github.com/xu-robert/sync-3.git
       # Fetch the latest changes from Repo A
