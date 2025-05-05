@@ -1,0 +1,30 @@
+trigger:
+  branches:
+    include:
+      - main  # Trigger on commits to the 'main' branch
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- job: SyncRepoA
+  steps:
+  - checkout: self  # This checks out the current repository (Repo B)
+    fetchDepth: 0
+
+  - script: |
+      # Use the System.AccessToken to authenticate
+      # git config --global credential.helper store
+      # echo "https://$(SYSTEM_ACCESSTOKEN):@dev.azure.com" > ~/.git-credentials
+      # Add the remote for Repo A (GitHub)
+      git remote add repo-a https://xu-robert:$(GH_TOKEN)@github.com/xu-robert/sync-3.git
+      # Fetch the latest changes from Repo A
+      git remote -v
+      git checkout main
+      git fetch repo-a
+      # git checkout -b main origin/main
+      # Push changes from Repo B's mirror to Repo A's mirror
+      git push repo-a HEAD:refs/heads/amd-mirror
+    displayName: 'Mirror Repo B to Repo A'
+    env:
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
