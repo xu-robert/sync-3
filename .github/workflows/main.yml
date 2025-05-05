@@ -24,7 +24,7 @@ jobs:
         env:
           AZURE_PAT: ${{ secrets.AZURE_PAT }}
         run: |
-          https://ECCC-DevOps:${AZURE_PAT}@dev.azure.com/ECCC-DevOps/SPB-EAD-AMD/_git/sync-3
+          git remote add repo-a https://ECCC-DevOps:${AZURE_PAT}@dev.azure.com/ECCC-DevOps/SPB-EAD-AMD/_git/sync-3
           git remote -v
           git fetch repo-a
           git push repo-a HEAD:refs/heads/ssi-mirror
